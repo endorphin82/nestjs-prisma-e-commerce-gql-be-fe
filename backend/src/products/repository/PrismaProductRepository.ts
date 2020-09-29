@@ -6,7 +6,7 @@ import { Product } from '../domain/Product';
 import { IProductRepository } from './IProductRepository';
 
 @Injectable()
-export class PrismaProductsRepository implements IProductRepository {
+export class PrismaProductRepository implements IProductRepository {
   constructor(
     private readonly prisma: PrismaService,
   ) {}

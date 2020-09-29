@@ -3,6 +3,7 @@ import { Product as PersistenceProduct } from '@prisma/client';
 import { UniqueEntityID } from '../../common/UniqueEntityID';
 import { Product } from '../domain/Product';
 import { NexusGenFieldTypes } from '../../generated/nexus';
+import { Category } from '../../categories/schema/types';
 
 
 export class ProductMap {
@@ -12,7 +13,7 @@ export class ProductMap {
         title: raw.title,
         description: raw.description,
         price: raw.price,
-        categoryId: raw.categoryId
+        categoryId: raw.categoryId,
       },
       new UniqueEntityID(raw.id),
     );
@@ -26,7 +27,7 @@ export class ProductMap {
       title: product.title!,
       description: product.description,
       price: product.price!,
-      categoryId: product.categoryId
+      categoryId: product.categoryId,
     };
   }
 
@@ -36,7 +37,7 @@ export class ProductMap {
       title: product.title,
       description: product.description,
       price: product.price,
-      categoryId: product.categoryId
+      category: Category as any
     };
   }
 }

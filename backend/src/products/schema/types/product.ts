@@ -16,7 +16,7 @@ export const Product = objectType({
     t.model.id();
     t.model.title();
     t.model.description();
-    t.model.categoryId();
+    t.model.category();
     t.model.price();
   },
 });

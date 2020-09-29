@@ -4,9 +4,10 @@ import { nexusSchemaPrisma } from 'nexus-plugin-prisma/schema';
 import { makeSchema } from '@nexus/schema';
 
 import * as productsSchema from '../products/schema';
+import * as categoriesSchema from '../categories/schema';
 
 export const schema = makeSchema({
-  types: { ...productsSchema },
+  types: { ...productsSchema, ...categoriesSchema },
   plugins: [nexusSchemaPrisma({
     experimentalCRUD: true,
     outputs: { typegen: path.join(__dirname, '../generated/nexus-prisma-typegen.ts') },
