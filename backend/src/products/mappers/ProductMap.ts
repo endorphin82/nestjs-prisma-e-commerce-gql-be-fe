@@ -5,7 +5,6 @@ import { Product } from '../domain/Product';
 import { NexusGenFieldTypes } from '../../generated/nexus';
 import { Category } from '../../categories/schema/types';
 
-
 export class ProductMap {
   static toDomain(raw: PersistenceProduct): Product {
     const product = Product.create(
@@ -32,12 +31,14 @@ export class ProductMap {
   }
 
   static toNexus(product: Product): NexusGenFieldTypes['Product'] {
+    console.log('product', product);
     return {
       id: product.id.toValue(),
       title: product.title,
       description: product.description,
       price: product.price,
-      category: Category as any
+      category: null,
+      // category: NexusGenFieldTypes['Category'] | null;
     };
   }
 }

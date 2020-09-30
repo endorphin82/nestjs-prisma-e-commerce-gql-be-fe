@@ -5,8 +5,6 @@ import { IncomingMessage } from 'http';
 import { PrismaService } from '../prisma/prisma.service';
 
 import { schema } from './schema-config';
-import { IProductService } from '../products/services/IProductService';
-import { Product } from '../products/domain/Product';
 
 @Injectable()
 export class GraphqlConfigService implements GqlOptionsFactory {
@@ -33,14 +31,13 @@ export class GraphqlConfigService implements GqlOptionsFactory {
     };
   }
 }
-
-export interface InitialContext {
-  request: IncomingMessage;
-  productService: IProductService;
-  product: Product | null
-  // logger: Logger
-}
+//
+// export interface InitialContext {
+//   request: IncomingMessage;
+//   productService: IProductService;
+//   product: Product | null
+//   // logger: Logger
+// }
 
 export interface Context {
-  prisma: PrismaService
 }

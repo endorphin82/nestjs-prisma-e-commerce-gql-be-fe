@@ -2,7 +2,7 @@ import { Category as PersistenceCategory } from '@prisma/client';
 
 import { UniqueEntityID } from '../../common/UniqueEntityID';
 
-import { NexusGenFieldTypes } from '../../generated/nexus';
+import { NexusGenFieldTypes, NexusGenRootTypes } from '../../generated/nexus';
 import { Category } from '../domain/Category';
 
 export class CategoryMap {
@@ -30,7 +30,7 @@ export class CategoryMap {
     return {
       id: category.id.toValue(),
       title: category.title,
-      products: []
+      products: [] as any,
     };
   }
 }

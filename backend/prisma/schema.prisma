@@ -12,7 +12,8 @@ model Product{
     title                   String    @default("default title")
     description             String?
     price                   Float
-    category                Category?
+    category                Category? @relation(fields: [categoryId], references: [id])
+    categoryId              String?
 }
 
 model Category{
